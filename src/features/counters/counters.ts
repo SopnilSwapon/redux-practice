@@ -6,8 +6,8 @@ type Counter = {
 };
 
 const initialState: Counter[] = [
-  { id: 1, value: 40 },
-  { id: 2, value: 30 },
+  { id: 1, value: 0 },
+  { id: 2, value: 0 },
 ];
 
 const counterSlice = createSlice({
