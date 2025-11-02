@@ -2,7 +2,7 @@ import Counter from "./components/Counter";
 import States from "./components/States";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "./app/store";
-import { decrement, increment } from "./features/counters/counters";
+import { decrement, increment } from "./features/counters/countersSlice";
 
 function App() {
   const values = useSelector((state: RootState) => state.counters);
