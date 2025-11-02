@@ -7,23 +7,29 @@ interface IPost {
   title: string;
   body: string;
 }
+
 interface IPostState {
   post: IPost[];
   isLoading: boolean;
   isError: boolean;
-  error?: string | null;
+  error: string | null;
 }
-const initialState = {
+
+const initialState: IPostState = {
   post: [],
   isLoading: false,
   isError: false,
   error: null,
-} satisfies IPostState as IPostState;
+};
 
-export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
-  const posts = await getPost();
-  return posts;
-});
+export const fetchPosts = createAsyncThunk<IPost[]>(
+  "posts/fetchPosts",
+  async () => {
+    const posts = await getPost();
+    return posts;
+  }
+);
+
 const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -40,7 +46,7 @@ const postsSlice = createSlice({
     builder.addCase(fetchPosts.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.error = action.error?.message;
+      state.error = action.error?.message ?? null;
     });
   },
 });

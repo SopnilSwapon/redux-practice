@@ -11,7 +11,7 @@ const initialState: Counter[] = [
 ];
 
 const counterSlice = createSlice({
-  name: "counters",
+  name: "countersssss",
   initialState,
   reducers: {
     increment: (state, action: PayloadAction<number>) => {
